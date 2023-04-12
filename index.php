@@ -30,22 +30,24 @@
     // creo funzione
 
     function randomPsw($length, $array) {
-        $psw = [''];
+    
         
-
-        for ($i = 0; $i < $length; $i++) {
-            array_rand($length);
-            $psw[] = $array[$i];
+        $random = [''];
+        $dato = $_GET['length'];
+        for ($i = 0; $i < count($dato); $i++) {
+            array_rand($random, $dato);
+            $psw[] = $random[$i];
         }
         return $psw;
     }
 
 
     // creo un modo per triggerare la funzione
-
+    
     if (!empty($length)) {
-        $random = ['a','b','c','d','e', 'A', 'B', 'C', 'D', 'E', '1', '2', '3', '4', '5', '!', '@', '^', '*', '?'];
-        randomPsw( $random, $length);
+    $random = ['a','b','c','d','e', 'A', 'B', 'C', 'D', 'E', '1', '2', '3', '4', '5', '!', '@', '^', '*', '?'];    
+    $psw = randomPsw( $random, $length);
+    return $psw;    
     }
     ?>
 
